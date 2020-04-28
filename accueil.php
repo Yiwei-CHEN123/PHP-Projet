@@ -39,6 +39,17 @@
 					if ($curseur->num_rows>0){
 						if ($ressql) {
 							if ($ressql->num_rows>0){
+								if ($curseur == FALSE) {
+						            // si la connexion est en échec 
+						            die("Erreur sélection service : ".mysqli_error($cx));
+						        } else {
+						            
+						            while ($nuplet = mysqli_fetch_array($curseur)) {
+						                $matricule = $nuplet["MatriculeE"];
+						                //echo $matricule;
+						            }  
+						        }
+
 								echo '<script type="text/javascript">';
 								echo 'window.location.href="Fonct_Principe.php"';
 								echo '</script>';
@@ -54,6 +65,8 @@
 						echo 'alert("Compte n\'existe pas")';
 						echo '</script>';
 					}
+
+					
 				}
 			?>
 		</form>
