@@ -39,7 +39,7 @@
 						if ($ressql) {
 							if ($ressql->num_rows>0){
 								echo '<script type="text/javascript">';
-								echo 'window.location.href="Fonct_Principe.html"';
+								echo 'window.location.href="Fonct_Principe.php"';
 								echo '</script>';
 					        }
 					        else{

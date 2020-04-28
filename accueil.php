@@ -40,8 +40,7 @@
 						if ($ressql) {
 							if ($ressql->num_rows>0){
 								echo '<script type="text/javascript">';
-//type de fichier a modifier
-								echo 'window.location.href="Fonct_Principe.html"';
+								echo 'window.location.href="Fonct_Principe.php"';
 								echo '</script>';
 					        }
 					        else{
