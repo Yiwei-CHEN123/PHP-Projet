@@ -1,9 +1,9 @@
 <?php
 // Définition des constantes de connexion
-define("ID_MYSQL", "21405091")
-define("PASSE_MYSQL", "P00LR5")
-define("HOST_MYSQL", "localhost/phpmyadmin")
-define("BD_MYSQL", "BDD_ProjetPHP")
+define("ID_MYSQL", "root");
+define("PASSE_MYSQL", "");
+define("HOST_MYSQL", "localhost");
+define("BD_MYSQL", "BDD_ProjetPHP");
 
 
 
@@ -22,7 +22,7 @@ function connexion() {
 
         }else {
             //base est correct - Tout va bien
-            return $cx
+            return $cx;
         }
     }
 }
@@ -35,9 +35,9 @@ function connexion() {
 */
 
 function retrouverRequete($cx,$IDIndi) {
-    $sqlIDIndi = "SELECT Requete FROM Indicaterus WHERE IDIndi = '$IDIndi";
+    $sqlRequete = "SELECT Requete FROM Indicaterus WHERE IDIndi = '$IDIndi'";
 
-    $curseur = mysqli_query($cx, $sqlIDIndi);
+    $curseur = mysqli_query($cx, $sqlRequete);
     if ($curseur == FALSE) {
         die ("Erreur fonction requete");
 
@@ -49,3 +49,29 @@ function retrouverRequete($cx,$IDIndi) {
         }
     }
 }
+
+// Retrouver la poste d'un employé par son email
+/* connexion en param entrée
+ * AdrEmailE en param entrée
+ * IDPoste en sortie
+ */
+
+ function retrouverPoste($cx,$AdrEmailE) {
+     $sqlNomPoste = "SELECT P.NomPoste 
+                    FROM Poste P
+                    WHERE P.IDPoste in ( SELECT P1.IDPoste 
+                                         FROM Employes E, Poste P1
+                                         WHERE P1.IDPoste = E.IDPoste
+                                         AND E.AdrEmailE = '$AdrEmailE' ); ";
+    
+    $curseur = mysqli_query($cx,$sqlNomPoste);
+    if ($curseur == FALSE) {
+        die("Erreur fonction retrouverEmail");
+    } else {
+        if (mysqli_num_rows($curseur) == 0)  {
+            return NULL;
+        } else {
+            return mysqli_fetch_array($curseur);
+        }
+    }
+ }
