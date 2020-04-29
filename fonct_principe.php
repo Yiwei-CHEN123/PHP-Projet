@@ -12,13 +12,14 @@ if(isset($_SESSION['mail']) == FALSE || isset($_SESSION['mdp']) == FALSE) { // P
 <head>
     <meta charset="utf-8">
     <title>La fonction principale</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 
 <body>
 
     <p>Choisissez l'opération que vous voulez faire :</p>
-    <a href="commande.php">Faire une commande de rapport</a>
-    <a href="liste_rapport.php">Consulter les rapports</a>
+    <p><a role="button" class="btn btn-primary" href="commande.php">Faire une commande de rapport</a></p>
+    <p><a role="button" class="btn btn-primary" href="liste_rapport.php">Consulter les rapports</a></p>
     
 </body>
 
