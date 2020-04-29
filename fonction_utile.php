@@ -45,7 +45,8 @@ function retrouverRequete($cx,$IDIndi) {
         if (mysqli_num_rows($curseur) == 0) {
             return NULL;
         } else {
-            return mysqli_fetch_array($curseur);
+            $row = mysqli_fetch_array($curseur);
+            return $row["Requete"];
         }
     }
 }
@@ -57,10 +58,10 @@ function retrouverRequete($cx,$IDIndi) {
  */
 
  function retrouverPoste($cx,$AdrEmailE) {
-     $sqlNomPoste = "SELECT P.NomPoste 
-                    FROM Poste P
+     $sqlNomPoste = "SELECT P.NomPoste as Poste
+                    FROM Postes P
                     WHERE P.IDPoste in ( SELECT P1.IDPoste 
-                                         FROM Employes E, Poste P1
+                                         FROM Employes E, Postes P1
                                          WHERE P1.IDPoste = E.IDPoste
                                          AND E.AdrEmailE = '$AdrEmailE' ); ";
     
@@ -71,10 +72,122 @@ function retrouverRequete($cx,$IDIndi) {
         if (mysqli_num_rows($curseur) == 0)  {
             return NULL;
         } else {
-            return mysqli_fetch_array($curseur);
+            $row = mysqli_fetch_array($curseur);
+            return $row["Poste"];
         }
     }
  }
+
+// Retrouver le MatriculeE d'un employé par son email
+/* connexion en param entrée
+ * AdrEmailE en param entrée
+ * MatriculeE en sortie
+ */
+
+function retrouverMatriculeE($cx,$AdrEmailE) {
+    $sqlMatriculeE = "SELECT E.MatriculeE as MatriculeE
+                      FROM Employes E
+                      WHERE E.AdrEmailE = '$AdrEmailE' ;";
+   
+   $curseur = mysqli_query($cx,$sqlMatriculeE);
+   if ($curseur == FALSE) {
+       die("Erreur fonction retrouverMatriculeE");
+   } else {
+       if (mysqli_num_rows($curseur) == 0)  {
+           return NULL;
+       } else {
+           $row = mysqli_fetch_array($curseur);
+           return $row["MatriculeE"];
+       }
+   }
+}
+
+
+// Retrouver le NomE et le PrenomE d'un employé par son MatriculeE
+/* connexion en param entrée
+ * MatriculeE en param entrée
+ * NomE et PrenomE en sortie
+ */
+
+function retrouverNomE($cx,$MatriculeE) {
+    $sqlNomE = "SELECT E.NomE as NomE
+                FROM Employes E
+                WHERE E.MatriculeE = '$MatriculeE' ;";
+   
+   $curseur = mysqli_query($cx,$sqlNomE);
+   if ($curseur == FALSE) {
+       die("Erreur fonction retrouverNomE");
+   } else {
+       if (mysqli_num_rows($curseur) == 0)  {
+           return NULL;
+       } else {
+           $row = mysqli_fetch_array($curseur);
+           return $row["NomE"];
+       }
+   }
+}
+
+function retrouverPrenomE($cx,$MatriculeE) {
+    $sqlPrenomE = "SELECT E.PrenomE as PrenomE
+                   FROM Employes E
+                   WHERE E.MatriculeE = '$MatriculeE' ;";
+   
+   $curseur = mysqli_query($cx,$sqlPrenomE);
+   if ($curseur == FALSE) {
+       die("Erreur fonction retrouverPrenomE");
+   } else {
+       if (mysqli_num_rows($curseur) == 0)  {
+           return NULL;
+       } else {
+           $row = mysqli_fetch_array($curseur);
+           return $row["PrenomE"];
+       }
+   }
+}
+
+ // Retrouver l'IDIndi d'un indicateur par son nom
+/* connexion en param entrée
+ * NomIndi en param entrée
+ * IDIndi en sortie
+ */
+
+ function retrouverIDIndi($cx,$NomIndi) {
+     $sqlIDIndi = "SELECT IDIndi FROM Indicateurs WHERE NomIndi = '$NomIndi' ";
+
+     $curseur = mysqli_query($cx,$sqlIDIndi);
+     if ($curseur == FALSE) {
+        die("Erreur fonction retrouverIDIndi");
+     } else {
+         if (mysqli_num_rows($curseur) == 0) {
+             return NULL;
+         } else {
+             $row = mysqli_fetch_array($curseur);
+             return $row["IDIndi"];
+         }
+     }
+ }
+
+  // Retrouver le nom d'un Poste par son IDPoste
+/* connexion en param entrée
+ * IDPoste en param entrée
+ * NomPoste en sortie
+ */
+
+function retrouverNomPoste($cx,$IDPoste) {
+    $sqlNomPoste = "SELECT NomPoste FROM Postes WHERE IDPoste = '$IDPoste' ";
+
+    $curseur = mysqli_query($cx,$sqlNomPoste);
+    if ($curseur == FALSE) {
+       die("Erreur fonction retrouverNomPoste");
+    } else {
+        if (mysqli_num_rows($curseur) == 0) {
+            return NULL;
+        } else {
+            $row = mysqli_fetch_array($curseur);
+            return $row["NomPoste"];
+        }
+    }
+}
 
 function ListeRapportAnnee($cx, $annee) { // Fonction qui permet de récupérer la liste des rapports en fonction de l'année
         
