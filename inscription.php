@@ -1,5 +1,5 @@
 <?php
-	require("Fonction_utile.php");
+	require("fonction_utile.php");
 
 	$cx = connexion();
 ?>
