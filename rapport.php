@@ -26,7 +26,6 @@ $cx = connexion();
         <?php
         $num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
         $_SESSION['NumeroR'] = $num_rapport;
-        $_SESSION['NumeroR'] = $num_rapport;
         if (isset($_SESSION['IDPoste']) == FALSE){
             die('<p>Vous ne pouvez pas accéder à cette page</p>');
         } elseif($_SESSION['IDPoste'] == '1') {
