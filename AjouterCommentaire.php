@@ -7,9 +7,10 @@
             <?php
 			require ("Fonction_utile.php");
 
+           SESSION_start();
             $cx = connexion(); 
-			$MatriculeE = $_COOKIE['matricule'];
-			$NumeroR = $_COOKIE['NumeroR'];
+	    $MatriculeE=$_SESSION['MatriculeE'];
+	    $NumeroR=$_SESSION['NumeroR'];
             $countenu = filter_input(INPUT_GET, "contenuC", FILTER_SANITIZE_SPECIAL_CHARS);     
             $temps=date("Y-m-d H:i:s");
 			$sqlIDmax = "SELECT max(IDSuivi) as ID FROM SuiviEdition";
