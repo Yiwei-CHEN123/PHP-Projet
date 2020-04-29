@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /* 
@@ -20,10 +19,11 @@ $result = RenvoyerEtude($cx, $num_rapport);
 
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Clôture</title>
+        <title>Renvoie à l'étude</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
     <body>
