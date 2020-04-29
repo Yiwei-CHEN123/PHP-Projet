@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /* 
@@ -22,10 +21,11 @@ $analy_indi = $_POST[('analy_indi')];
 $rq_indi = $_POST[('rq_indi')];
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Clôture</title>
+        <title>Ajout</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
     <body>
