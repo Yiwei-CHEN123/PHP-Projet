@@ -5,7 +5,8 @@
     <body>
         <p>
             <?php
-			require ("Fonction_utile.php");
+		require ("Fonction_utile.php");
+		$num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
 
            SESSION_start();
             $cx = connexion(); 
@@ -37,7 +38,7 @@
 
                 if ($crExecSQL == TRUE) {
                     
-                   header("location:commentaire.php"); 
+                   header("location:commentaire.php?num_rapport=<?php echo $num_rapport;?>"); 
                 } else {
                     echo(mysqli_error($cx));
                     echo("<br/>");
