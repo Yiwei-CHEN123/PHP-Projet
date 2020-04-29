@@ -5,7 +5,7 @@
         <title>Commentaires</title>
     </head>
     <body>
-	<a href="Rapport.php">Retour à la page de rapport</a>
+	<a href="rapport.php">Retour à la page de rapport</a>
 <table border = 1>
 <tr>
 <td>Heure
