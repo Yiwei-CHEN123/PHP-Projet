@@ -19,6 +19,8 @@
 require ("Fonction_utile.php");
 
                 $cx = connexion();
+	        SESSION_start();
+	        $NumeroR=$_SESSION['NumeroR'];
                 $sqlcommentaire = "SELECT S.IDSuivi, S.DateHeure, P.NomPoste , S.Commentaire "
 				. "FROM suiviEdition S,employes E,postes P "
 				. "WHERE P.IDPoste=E.IDPoste and S.MatriculeE=E.MatriculeE and S.NumeroR=1001 order by S.DateHeure DESC";
