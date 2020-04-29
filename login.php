@@ -1,6 +1,6 @@
 <?php
+	session_start();
 	require_once('Fonction_utile.php');
-
 	$cx = connexion();
 ?>
 
@@ -44,14 +44,18 @@
 						        } else {
 						            
 						            while ($nuplet = mysqli_fetch_array($curseur)) {
-						                $matricule = $nuplet["MatriculeE"];
-								setcookie('matricule',$matricule);
+								$_SESSION['mail'] = $nuplet['AdrEmailE'];
+                                                                $_SESSION['mdp'] = $nuplet['MotPasseE'];
+                                                                $_SESSION['IDPoste'] = $nuplet['IDPoste'];
+                                                                $_SESSION['MatriculeE'] = $nuplet["MatriculeE"];
+						                // $matricule = $nuplet["MatriculeE"];
+								//setcookie('matricule',$matricule);
 						                //echo $matricule;
 						            }  
 						        }
 
 								echo '<script type="text/javascript">';
-								echo 'window.location.href="Fonct_Principe.php"';
+								echo 'window.location.href="fonct_principe.php"';
 								echo '</script>';
 					        }
 					        else{
