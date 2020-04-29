@@ -1,11 +1,13 @@
-
+<?php
+	$num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
+?>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Commentaires</title>
     </head>
     <body>
-	<a href="rapport.php">Retour à la page de rapport</a>
+	<a href="rapport.php?num_rapport=<?php echo $num_rapport;?>">Retour à la page de rapport</a>
 <table border = 1>
 <tr>
 <td>Heure
