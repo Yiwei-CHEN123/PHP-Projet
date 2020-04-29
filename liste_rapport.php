@@ -40,7 +40,7 @@ $cx = connexion();
             } else {
                 foreach($rapport as $nupletRapport){
                     echo('<li>');
-                    echo('<a href="liste_rapport.php?num_rapport='.$nupletRapport['NumeroR'].'"> '.$nupletRapport['NumeroR'].' - '.$nupletRapport['TitreR'].'</a>');
+                    echo('<a href="liste_rapport.php?num_rapport='.$nupletRapport['NumeroR'].'"> '.$nupletRapport['NumeroR'].' - '.$nupletRapport['TitreR'].' - '.$nupletRapport['Etat'].'</a>');
                     echo('</li>');
                 }
             }
