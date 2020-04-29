@@ -45,7 +45,7 @@
 						        } else {
 						            
 						            while ($nuplet = mysqli_fetch_array($curseur)) {
-								$_SESSION['mail'] = $nuplet['AdrEmailE'];
+								$_SESSION['email'] = $nuplet['AdrEmailE'];
                                                                 $_SESSION['mdp'] = $nuplet['MotPasseE'];
                                                                 $_SESSION['IDPoste'] = $nuplet['IDPoste'];
                                                                 $_SESSION['MatriculeE'] = $nuplet["MatriculeE"];
