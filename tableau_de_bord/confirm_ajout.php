@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 session_start();
@@ -11,10 +10,11 @@ $cx = connexion();
 
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Clôture</title>
+        <title>Ajout</title>
         <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
     <body>
