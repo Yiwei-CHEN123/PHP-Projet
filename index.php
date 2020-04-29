@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require("Fonction_utile.php");
+	require("fonction_utile.php");
 	$cx = connexion();
 ?>
 
