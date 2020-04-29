@@ -78,7 +78,7 @@ function retrouverRequete($cx,$IDIndi) {
 
 function ListeRapportAnnee($cx, $annee) { // Fonction qui permet de récupérer la liste des rapports en fonction de l'année
         
-        $requete = "SELECT NumeroR, TitreR FROM Rapports WHERE DateCreR LIKE '$annee%';";
+        $requete = "SELECT * FROM Rapports WHERE DateCreR LIKE '$annee%';";
         $result = mysqli_query($cx, $requete);
                 
         if ($result == FALSE) {
