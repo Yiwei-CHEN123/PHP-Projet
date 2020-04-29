@@ -52,7 +52,7 @@ require ("Fonction_utile.php");
  ?> 
  
  </table>
- <form action="AjouterCommentaire.php">
+ <form action="AjouterCommentaire.php?num_rapport=<?php echo $num_rapport;?">
  
  <input type="text" name="contenuC" value="" />
  
