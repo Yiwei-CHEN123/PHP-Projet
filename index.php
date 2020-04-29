@@ -1,5 +1,5 @@
 <?php
-	session_start()
+	session_start();
 	require("Fonction_utile.php");
 	$cx = connexion();
 ?>
