@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /* 
@@ -20,7 +19,7 @@ $num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
 $result = CloturerRapport($cx, $num_rapport);
 
 ?>
-
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
