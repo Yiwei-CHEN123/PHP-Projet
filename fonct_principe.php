@@ -17,9 +17,11 @@ if(isset($_SESSION['mail']) == FALSE || isset($_SESSION['mdp']) == FALSE) { // P
 
 <body>
 
-    <p>Choisissez l'opération que vous voulez faire :</p>
+    <div class="container">
+    <h2>Choisissez l'opération que vous souhaitez faire :</h2>
     <p><a role="button" class="btn btn-primary" href="commande.php">Faire une commande de rapport</a></p>
     <p><a role="button" class="btn btn-primary" href="liste_rapport.php">Consulter les rapports</a></p>
+    </div>
     
 </body>
 
