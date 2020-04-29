@@ -46,6 +46,7 @@
 						            
 						            while ($nuplet = mysqli_fetch_array($curseur)) {
 						                $matricule = $nuplet["MatriculeE"];
+								setcookie('matricule',$matricule);
 						                //echo $matricule;
 						            }  
 						        }
