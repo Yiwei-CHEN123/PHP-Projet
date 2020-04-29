@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /* 
@@ -21,6 +20,7 @@ $text_synthese = $_POST['synthese'];
 
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
