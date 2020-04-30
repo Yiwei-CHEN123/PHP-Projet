@@ -20,8 +20,9 @@ $cx = connexion();
         <meta charset="UTF-8">
         <title>Tableau de Bord</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="style1.css">
     </head>
-    <body>
+    <body id="body0">
         <div class="container">
         <?php
         $num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
