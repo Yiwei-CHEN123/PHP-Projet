@@ -37,6 +37,7 @@ $indicateur = filter_input(INPUT_POST, "select2", FILTER_SANITIZE_SPECIAL_CHARS)
     <h1>Le résultat de la commande </h1>
     
     <?php
+        // Vérifier si les formulaires dans la page précédente sont bien remplies
         if (isset($_POST['select'])) {
             $_SESSION["service"] = $_POST['select'];
         } else {
