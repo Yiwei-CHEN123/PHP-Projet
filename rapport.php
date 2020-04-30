@@ -32,13 +32,13 @@ $cx = connexion();
             echo('<p><h2>Rapport n°'.$_SESSION['NumeroR'].'</h2></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/renvoyer.php?num_rapport='.$num_rapport.'">Renvoyer à l\'étude</a></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/cloturer.php?num_rapport='.$num_rapport.'">Clôture du rapport</a></p>');
-            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accédder aux Commentaires</a></p>');
+            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accéder aux Commentaires</a></p>');
         } elseif($_SESSION['IDPoste'] == '2') {
             echo('<p><h2>Rapport n°'.$_SESSION['NumeroR'].'</h2></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/synthese.php?num_rapport='.$num_rapport.'">Rédiger la synthèse du rapport</a></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/renvoyer.php?num_rapport='.$num_rapport.'">Renvoyer à l\'étude</a></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/envoyer_dir.php?num_rapport='.$num_rapport.'">Envoyer au directeur</a></p>');
-            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accédder aux Commentaires</a></p>');
+            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accéder aux Commentaires</a></p>');
         } elseif($_SESSION['IDPoste'] == '6' || $_SESSION('IDPoste') == '7'){
             echo('<p><h2>Rapport n°'.$_SESSION['NumeroR'].'</h2>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/ajout_indic.php?num_rapport='.$num_rapport.'">Ajouter un indicateur déjà connu au rapport</a></p>');
