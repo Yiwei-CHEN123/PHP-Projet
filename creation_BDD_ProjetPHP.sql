@@ -111,7 +111,7 @@ INSERT INTO Indicateurs VALUES ('03','Nombre total des abonnements pour la publi
 INSERT INTO Indicateurs VALUES ('04','Nombre total des diffusions pour la publication "La Croix" en 2018','Analyse indicateur 4','SELECT P.NomPU, sum(DPU.NbDiffusions) as [Nombre diffusions] FROM Publication P, DiffuserPU DPU, Calend2 C WHERE P.CodePU = DPU.CodePU AND C.Annee = DPU.Annee AND C.Annee = "2018" AND P.NomPU = "La Croix" GROUP BY P.NomPU;');
 INSERT INTO Indicateurs VALUES ('05','Nombre total des diffusions pour la publication "Le parisien" en 2019','Analyse indicateur 5','SELECT P.NomPU, sum(DPU.NbDiffusions) as [Nombre diffusions] FROM Publication P, DiffuserPU DPU, Calend2 C WHERE P.CodePU = DPU.CodePU AND C.Annee = DPU.Annee AND C.Annee = "2019" AND P.NomPU = "Le Parisien" GROUP BY P.NomPU;');
 
-INSERT INTO Rapports VALUES ('1001','Rapport sur analyse abbonement','2018-01-01 17:10:00','Création du rapport','Synthèse Rapport 1');
+INSERT INTO Rapports VALUES ('1001','Rapport sur analyse abonnement','2018-01-01 17:10:00','Création du rapport','Synthèse Rapport 1');
 INSERT INTO Rapports VALUES ('1002','Rapport financier sur le nombre abonnement ','2018-02-01 17:10:00','Ouvert','Synthèse Rapport 2');
 
 
