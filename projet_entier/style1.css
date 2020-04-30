@@ -1,0 +1,37 @@
+#bodyIndex {
+  border-radius: 25px;
+  border:3px dashed #8470FF;
+  margin-left : 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  padding: 70px;
+  background-color: #ffffff;
+  font-size: 1.1em;
+} 
+
+
+#body0 {
+    border-radius: 25px;
+    border:3px dashed #8470FF;
+    margin-left : 10%;
+    margin-right: 10%;
+    padding: 70px;
+    background-color: #ffffff;
+    font-size: 1.1em;
+    margin-top: 5%;
+  }
+
+  h1 {
+    margin: 100px,0px;
+    font-size: 35px;
+    color: transparent;
+    background-color : blue;
+    text-shadow : rgba(255,255,255,0.5) 0 5px 6px, rgba(255,255,255,0.2) 1px 3px 3px;
+    -webkit-background-clip : text;
+  }
+
+
+  html {
+    background-color: #E6E6FA; 
+    font-family: Arial;
+  }
