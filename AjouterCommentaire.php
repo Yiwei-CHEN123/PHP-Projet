@@ -1,8 +1,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
+	<link rel="stylesheet" href="style1.css">
     </head>
-    <body>
+    <body id="body0">
         <p>
             <?php
 	    require ("Fonction_utile.php");
