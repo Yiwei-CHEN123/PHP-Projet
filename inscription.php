@@ -24,6 +24,7 @@
 			<p>Poste:
 
 				<?php 
+					// procédure pour obtenir une liste de nom de poste des employés
 			        $requete = "SELECT IDPoste, NomPoste FROM Postes ORDER BY 1";
 			        $curseur = mysqli_query($cx, $requete);
 
@@ -51,6 +52,7 @@
 		</form>
 
 		<?php
+			// une fois le bouton "Je m'inscis" est cliqué, démarrer les procédures pour vérifier des données
 			if (isset($_GET['btnInscription'])){
 				$email = $_GET['email'];
 				$nom = $_GET['nom'];
@@ -65,14 +67,23 @@
 				$reqsql = "SELECT * FROM Employes WHERE (AdrEmailE ='$email') AND (MotPasseE = '$pwd' )";
 				$ressql = $cx->query($reqsql);
 
-				if ($curseur){
-					if ($curseur->num_rows>0){
-						echo "Vous vous &ecirc;tes d&eacute;j&agrave; inscrit. Vous pouvez vous connecter directement.";
-						echo '<a href = "login.php">';
-						echo "Connectez-vous.";
-						echo '</a>';
-					}else{
-							if ($pwd == $cpwd){
+				if ($idPoste == 0){ 
+					/* si l'utilisateur n'a pas choisi son poste, démarrer une alerte et retourner à la 
+					   page d'inscription sans effacer les formulaires */
+					echo '<script language="JavaScript">';
+					echo 'alert("Veuillez choisir votre poste!");history.back();';
+					echo '</script>;';
+				} else {
+					if ($curseur){
+						if ($curseur->num_rows>0){
+							/* si le compte à inscrire existe déjà, rappeler à l'utlisateur de se connecter 
+							   et lui proposer le lien vers la page login */
+							echo "Vous vous &ecirc;tes d&eacute;j&agrave; inscrit. Vous pouvez vous connecter directement.";
+							echo '<a href = "login.php">';
+							echo "Connectez-vous.";
+							echo '</a>';
+						}else{
+							if ($pwd == $cpwd){ // comparer le mot de passe dans BD avec celui saisi par l'utilisateur
 								//trouver le max MatriculeE dans le tableau Employes
 								$maxMatricule = "SELECT MAX(MatriculeE) as maxm FROM Employes";
 								$resMax = mysqli_query($cx, $maxMatricule);
@@ -80,12 +91,11 @@
 								if ($resMax){
 									if ($resMax->num_rows>0){
 										$rows = $resMax->fetch_array();
-											//print_r($rows);
-											//echo $rows['maxm'];
 									}
 								}
 
-								$matricule = $rows['maxm'] + 1;
+								// obtenir un nouveau numéro d'employé
+								$matricule = $rows['maxm'] + 1; 
 
 								//insertion donnees dans BD
 								$insertSQL = "INSERT INTO Employes (MatriculeE, NomE, PrenomE, AdrEmailE, MotPasseE, IDPoste) VALUES(?, ?, ?, ?, ?, ?)";          
@@ -99,20 +109,24 @@
 
 						        $crExecSQL = mysqli_stmt_execute($ordreInsert);
 
-
-								//passer a la page login
+								// si l'inscription est réussie, passer à la page login
 								echo "L'inscription r&eacute;ussie.";
 								echo '<a href = "login.php">';
 								echo "Connectez-vous.";
 								echo '</a>';
 							} else {
+								// si les 2 mots de passe ne correspondent pas, alerter l'utlisateur et retourner à la page d'inscription
 								echo '<script language="JavaScript">';
 					        	echo 'alert("Vos deux mots de passe ne correspondent pas!");location.href="inscription.php"';
 					        	echo '</script>;';
-						} 
+							} 
+						}
 					}
 				}
-				
+
+
+
+						
 			}
 		?>
 

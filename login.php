@@ -25,6 +25,8 @@
 			<p><input type="submit" name="btnconnecter" value="Se connecter"></p>
 
 			<?php
+				/* une fois le bouton "Se connecter" est cliqué, démarrer les précédure suivantes pour
+				   vérifier les informations fournies par utilisateur*/
 				if (isset($_GET['btnconnecter'])){
 					$email = $_GET['email'];
 					$pwd = $_GET['password'];
@@ -35,42 +37,39 @@
 					$reqsql = "SELECT * FROM Employes WHERE (AdrEmailE ='$email') AND (MotPasseE = '$pwd' )";
 					$ressql = $cx->query($reqsql);
 
-					if ($curseur->num_rows>0){
+					if ($curseur->num_rows>0){ //vérifier si le compte existe déjà dans BD
 						if ($ressql) {
-							if ($ressql->num_rows>0){
+							if ($ressql->num_rows>0){ //vérifier l'adresse email et le mot de passe
 								if ($curseur == FALSE) {
 						            // si la connexion est en échec 
 						            die("Erreur sélection service : ".mysqli_error($cx));
 						        } else {
-						            
+						            //sauvgarder des données suivantes pour les partager entre des pages
 						            while ($nuplet = mysqli_fetch_array($curseur)) {
-								$_SESSION['email'] = $nuplet['AdrEmailE'];
-                                                                $_SESSION['mdp'] = $nuplet['MotPasseE'];
-                                                                $_SESSION['IDPoste'] = $nuplet['IDPoste'];
-                                                                $_SESSION['MatriculeE'] = $nuplet["MatriculeE"];
-						                // $matricule = $nuplet["MatriculeE"];
-								//setcookie('matricule',$matricule);
-						                //echo $matricule;
+										$_SESSION['email'] = $nuplet['AdrEmailE'];
+                                        $_SESSION['mdp'] = $nuplet['MotPasseE'];
+                                        $_SESSION['IDPoste'] = $nuplet['IDPoste'];
+                                        $_SESSION['MatriculeE'] = $nuplet["MatriculeE"];
 						            }  
 						        }
-
+						        // si l'adresse email et le mot de passe correspondent, passer à la page des fonctionnalités
 								echo '<script type="text/javascript">';
 								echo 'window.location.href="fonct_principe.php"';
 								echo '</script>';
 					        }
 					        else{
+					        	// si l'adresse email et le mot de passe ne correspondent pas, alerter l'utilisateur et retourner à la page d'accueil
 					        	echo '<script language="JavaScript">';
-					        	echo 'alert("L\'adresse email et le mot de passe ne correspondent pas!");location.href="accueil.php"';
+					        	echo 'alert("L\'adresse email et le mot de passe ne correspondent pas!");location.href="index.php"';
 					        	echo '</script>;';
 					        }
 						} 
 					}else{
+						// si l'adresse email n'est jamais enregistré pour un compte, alerter l'utlisateur
 						echo '<script language="JavaScript">';
 						echo 'alert("Compte n\'existe pas")';
 						echo '</script>';
-					}
-
-					
+					}	
 				}
 			?>
 		</form>
