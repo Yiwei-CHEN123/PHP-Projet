@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
-	<body id="body0">
+	<body id="bodyIndex">
 		<h1>Lagard&egrave;re Active</h1>
 		<h2>Je possède un compte en ligne</h2>
 		
