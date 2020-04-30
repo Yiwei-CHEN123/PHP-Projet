@@ -20,8 +20,9 @@ $cx = connexion();
         <meta charset="UTF-8">
         <title>Consulter les rapports</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="style1.css">
     </head>
-    <body>
+    <body id="body0">
         <div class="container">
             <h1>Liste des rapports</h1>
         <ul>
