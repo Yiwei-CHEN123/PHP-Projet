@@ -9,8 +9,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Commentaires</title>
+	<link rel="stylesheet" href="style1.css">
     </head>
-    <body>
+    <body id="body0">
 	<a href="rapport.php?num_rapport=<?php echo $_SESSION['NumeroR'];?>">Retour à la page de rapport</a>
 <table border = 1>
 <tr>
