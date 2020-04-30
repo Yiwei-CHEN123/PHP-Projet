@@ -4,6 +4,7 @@ define("ID_MYSQL", "root");
 define("PASSE_MYSQL", "");
 define("HOST_MYSQL", "localhost");
 define("BD_MYSQL", "BDD_ProjetPHP");
+define("BD_Vente","BD_SQL");
 
 
 
@@ -27,6 +28,23 @@ function connexion() {
     }
 }
 
+function connexionBDvente(){
+    $cxVente = mysqli_connect(HOST_MYSQL, ID_MYSQL, PASSE_MYSQL);
+
+    if ($cxVente == NULL) {
+        die("Erreur connexion à MySQL/Maria DB : ".mysqli_connect_error());
+
+    }else {
+        //connexion réussie
+        if (mysqli_select_db($cxVente,BD_Vente) == FALSE) {
+            die("Choix base impossible : ".mysqli_error($cxVente));
+
+        }else {
+            //base est correct - Tout va bien
+            return $cxVente;
+        }
+    }
+}
 
 // Retrouver une requête à l'aide de son IDIndi (car il est unique)
 /* connexion en param entrée
