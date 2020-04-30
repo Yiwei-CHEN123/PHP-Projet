@@ -25,7 +25,7 @@ require ("Fonction_utile.php");
 	        $NumeroR=$_SESSION['NumeroR'];
                 $sqlcommentaire = "SELECT S.IDSuivi, S.DateHeure, P.NomPoste , S.Commentaire "
 				. "FROM suiviEdition S,employes E,postes P "
-				. "WHERE P.IDPoste=E.IDPoste and S.MatriculeE=E.MatriculeE and S.NumeroR=1001 order by S.DateHeure DESC";
+				. "WHERE P.IDPoste=E.IDPoste and S.MatriculeE=E.MatriculeE and S.NumeroR=".$NumeroR." order by S.DateHeure DESC";
                 $curseur = mysqli_query($cx, $sqlcommentaire);
 
                 if ($curseur == FALSE) {
