@@ -43,7 +43,7 @@ $cx = connexion();
             echo('<p><h2>Rapport n°'.$_SESSION['NumeroR'].'</h2>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/ajout_indic.php?num_rapport='.$num_rapport.'">Ajouter un indicateur déjà connu au rapport</a></p>');
             echo('<p><a role="button" class="btn btn-primary" href="tableau_de_bord/ajout_new_indic.php?num_rapport='.$num_rapport.'">Ajouter un nouvel indicateur (SQL)</a></p>');
-            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accédder aux Commentaires</a></p>');
+            echo('<p><a role="button" class="btn btn-primary" href="commentaire.php?=num_rapport='.$num_rapport.'">Accéder aux Commentaires</a></p>');
         }
         ?>
         </div>
