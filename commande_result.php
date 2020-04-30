@@ -137,22 +137,22 @@ $indicateur = filter_input(INPUT_POST, "select2", FILTER_SANITIZE_SPECIAL_CHARS)
                     }
                 } else {
                     echo '<script language="JavaScript">';
-			        echo 'alert("Erreur : Vous n\'avez pas encore déterminé le titre de rapport !");history.back();';
+		    echo 'alert("Erreur : Vous n\'avez pas encore déterminé le titre de rapport !");history.back();';
                     echo '</script>;';
                     //die("Erreur : Vous n'avez pas encore déterminé le titre de rapport ! ");
                 }
                 $_SESSION["indicateur"] = $_POST['opt_indi']; 
             } else {
                 echo '<script language="JavaScript">';
-			    echo 'alert("Erreur : Vous n\'avez pas encore sélectionné l\'indicateur !");history.back();';
+		echo 'alert("Erreur : Vous n\'avez pas encore sélectionné l\'indicateur !");history.back();';
                 echo '</script>;';
                 //die("Erreur : Vous n'avez pas encore sélectionné l'indicateur ! ");
             }
             $_SESSION["service"] = $_POST['select'];
         } else {
             echo '<script language="JavaScript">';
-			echo 'alert("Erreur : Vous n\'avez pas encore sélectionné le service !");history.back();';
-			echo '</script>;';
+	    echo 'alert("Erreur : Vous n\'avez pas encore sélectionné le service !");history.back();';
+	    echo '</script>;';
             //die("Erreur : Vous n'avez pas encore sélectionné le service ! ");
         }
     ?>
