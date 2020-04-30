@@ -5,10 +5,9 @@
     <body>
         <p>
             <?php
-		require ("Fonction_utile.php");
-		$num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
-
-           SESSION_start();
+	    require ("Fonction_utile.php");
+	    $num_rapport = filter_input(INPUT_GET, 'num_rapport', FILTER_VALIDATE_INT);
+	    SESSION_start();
             $cx = connexion(); 
 	    $MatriculeE=$_SESSION['MatriculeE'];
 	    $NumeroR=$_SESSION['NumeroR'];
